@@ -38,7 +38,7 @@ class SurlRequest extends FormRequest
 
         return [
             'url'           => 'required|active_url',
-            'identifier'    => 'max:255|unique:Mniknab\Surl\Models\SurlModel' . $exceptUniqueIdentifier,
+            'identifier'    => 'max:255|unique:surls' . $exceptUniqueIdentifier,
             'expires_at'    => 'date|after:now|nullable'
         ];
     }
