@@ -1,4 +1,6 @@
 # SURL
+ 
+ [![Build Status](https://travis-ci.com/mniknab/surl.svg?branch=master)](https://travis-ci.com/mniknab/surl)
 
 **SURL** is a package allowing you to shorten urls.
 
