@@ -1,0 +1,41 @@
+{
+    "name": "mniknab/surl",
+    "description": "SURL - Laravel Short Url",
+    "keywords": ["surl", "short", "url", "short url", "short-url", "shortUrl"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohammad Niknab",
+            "email": "MohammadNiknab@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^8.0|^9.0",
+        "codedungeon/phpunit-result-printer": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mniknab\\Surl\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mniknab\\Surl\\SurlServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
