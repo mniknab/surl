@@ -2,6 +2,8 @@
 
 Route::name('surl.')->prefix('surl-management')->middleware('web')->group(function (){
 
+//    App::setLocale('fa');
+
     Route::get('/','\Mniknab\Surl\Http\Controllers\SurlController@index')->name('list');
 
     Route::get('create','\Mniknab\Surl\Http\Controllers\SurlController@create')->name('create');

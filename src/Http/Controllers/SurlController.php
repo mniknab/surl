@@ -3,6 +3,7 @@
 namespace Mniknab\Surl\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\App;
 use Mniknab\Surl\Contracts\Surl as SurlContract;
 use Mniknab\Surl\Http\Requests\SurlRequest;
 use Mniknab\Surl\Http\Responses\SurlResponse;
@@ -31,6 +32,7 @@ class SurlController extends Controller
     public function __construct(SurlContract $surl)
     {
         $this->surl = $surl;
+        App::setLocale( config('surl.locale') );
     }
 
     /**

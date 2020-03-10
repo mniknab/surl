@@ -32,6 +32,7 @@ class SurlServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/Http/Routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'surl');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'surl');
 
         if ($this->app->runningInConsole()) {
             $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
@@ -43,6 +44,11 @@ class SurlServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/surl.php' => config_path('surl.php')
             ], 'config');
+
+            $this->publishes([
+                __DIR__.'/../resources/lang' => resource_path('lang/vendor/surl'),
+            ],'translate');
+
         }
     }
 }

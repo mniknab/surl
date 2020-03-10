@@ -15,33 +15,33 @@
             @endif
 
             <div class="form-group">
-                <label for="url">Long URL</label>
-                <input type="url" required class="form-control" id="url" name="url" placeholder="Paste an long url" value="{{old('url',$surl['url'])}}">
+                <label for="url">{{__('surl::inputs.url')}}</label>
+                <input type="url" required class="form-control" id="url" name="url" placeholder="{{__('surl::inputs.url_placeholder')}}" value="{{old('url',$surl['url'])}}">
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="identifier">Custom link (optional)</label>
-                    <input type="text" class="form-control" id="identifier" aria-describedby="identifierHelp" name="identifier" placeholder="Your custom link" value="{{old('identifier',$surl['identifier'])}}">
-                    <small id="identifierHelp" class="form-text text-muted">Leave it empty for auto-generate link</small>
+                    <label for="identifier">{{__('surl::inputs.identifier')}}</label>
+                    <input type="text" class="form-control" id="identifier" aria-describedby="identifierHelp" name="identifier" placeholder="{{__('surl::inputs.identifier_placeholder')}}" value="{{old('identifier',$surl['identifier'])}}">
+                    <small id="identifierHelp" class="form-text text-muted">{{__('surl::inputs.identifier_help')}}</small>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="expires_at">Expires at (optional)</label>
+                    <label for="expires_at">{{__('surl::inputs.expires_at')}}</label>
                     <input type="date" class="form-control" id="expires_at" aria-describedby="expiresAtHelp" name="expires_at" value="{{old('expires_at',$surl['expires_at'])}}">
-                    <small id="expiresAtHelp" class="form-text text-muted">Leave it empty for permanent link</small>
+                    <small id="expiresAtHelp" class="form-text text-muted">{{__('surl::inputs.expires_at_help')}}</small>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="title">Title (optional)</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Set your title" value="{{old('title',$surl['title'])}}">
+                    <label for="title">{{__('surl::inputs.title')}}</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="{{__('surl::inputs.title_placeholder')}}" value="{{old('title',$surl['title'])}}">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="description">Description (optional)</label>
-                <input type="email" class="form-control" id="description" name="description" placeholder="Set your description" value="{{old('description',$surl['description'])}}">
+                <label for="description">{{__('surl::inputs.description')}}</label>
+                <input type="email" class="form-control" id="description" name="description" placeholder="{{__('surl::inputs.description_placeholder')}}" value="{{old('description',$surl['description'])}}">
             </div>
 
-            <button class="btn btn-primary" type="submit"> Submit </button>
+            <button class="btn btn-primary" type="submit"> {{__('surl::inputs.submit_button')}} </button>
         </form>
     </div>
 @endsection

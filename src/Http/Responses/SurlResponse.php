@@ -56,21 +56,21 @@ class SurlResponse implements Responsable
 
         if(is_bool($this->result)){
             return [
-                'content'   => 'Your short link deleted successfully!',
+                'content'   => __('surl::responses.deleted'),
                 'type'      => 'success'
             ];
         }
 
         if($this->result->wasRecentlyCreated){
             $message = [
-                'content'   => 'Your short link created successfully!',
+                'content'   => __('surl::responses.created'),
                 'type'      => 'success'
             ];
         }
 
         if(!$this->result->wasRecentlyCreated){
             $message = [
-                'content'   => 'Your short link updated successfully!',
+                'content'   => __('surl::responses.updated'),
                 'type'      => 'success'
             ];
         }
