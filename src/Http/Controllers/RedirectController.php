@@ -69,8 +69,8 @@ class RedirectController extends Controller
      */
     public function abort($error_code){
         if( view()->exists('surl::errors.'.$error_code) ){
-            return response()->view('surl::errors.'.$error_code, [], $error_code);
+            $view = response()->view('surl::errors.'.$error_code, [], $error_code);
         }
-        return abort($error_code);
+        return $view ?? abort($error_code);
     }
 }

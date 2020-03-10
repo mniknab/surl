@@ -53,36 +53,30 @@ class SurlResponse implements Responsable
      */
     private function getMessage() :array
     {
-        $messages = [
-          'created' => 'Your short link created successfully!',
-          'updated' => 'Your short link updated successfully!',
-          'deleted' => 'Your short link deleted successfully!',
-          'error'   => 'An Error has occurred!'
-        ];
 
         if(is_bool($this->result)){
             return [
-                'content'   => $messages['deleted'],
+                'content'   => 'Your short link deleted successfully!',
                 'type'      => 'success'
             ];
         }
 
         if($this->result->wasRecentlyCreated){
-            return [
-                'content'   => $messages['created'],
+            $message = [
+                'content'   => 'Your short link created successfully!',
                 'type'      => 'success'
             ];
         }
 
         if(!$this->result->wasRecentlyCreated){
-            return [
-                'content'   => $messages['updated'],
+            $message = [
+                'content'   => 'Your short link updated successfully!',
                 'type'      => 'success'
             ];
         }
 
-        return [
-            'content'   => $messages['error'],
+        return $message ?? [
+            'content'   => 'An Error has occurred!',
             'type'      => 'danger'
         ];
     }

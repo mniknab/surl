@@ -195,7 +195,6 @@ class CreateTest extends TestCase
             ->assertJsonValidationErrors('expires_at');
     }
 
-
     /** @test */
     public function an_expiration_date_must_be_in_the_future()
     {
@@ -212,4 +211,29 @@ class CreateTest extends TestCase
             ->assertStatus(422)
             ->assertJsonValidationErrors('expires_at');
     }
+
+    /** @test */
+    public function it_must_be_return_create_page_view()
+    {
+        $response = $this->newSurl();
+
+        $response
+            ->assertStatus(200)
+            ->assertViewIs('surl::create');
+    }
+
+    /** @test */
+    public function it_must_redirect_to_list_route_after_creation()
+    {
+        $parameters = [
+            'url' => 'https://laravel.com',
+        ];
+
+        $response = $this->createSurlWithNormalPostMethod($parameters);
+        $response
+            ->assertStatus(302)
+            ->assertHeader('Location',route('surl.list'))
+            ->assertSessionHasNoErrors();
+    }
+
 }

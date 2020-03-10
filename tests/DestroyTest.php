@@ -23,12 +23,24 @@ class DestroyTest extends TestCase
     }
 
     /** @test */
-    public function an_exist_record_can_be_deleted()
+    public function an_exist_record_can_be_destroyed()
     {
         $createResponse = $this->createSurl([ 'url' => 'https://laravel.com' ],true);
 
         $response = $this->destroySurl($createResponse['id']);
 
         $response->assertStatus(204);
+    }
+
+    /** @test */
+    public function it_must_redirect_to_list_route_after_destroyed()
+    {
+        $createResponse = $this->createSurl([ 'url' => 'https://laravel.com' ],true);
+        $response = $this->destroySurl($createResponse['id'],true);
+
+        $response
+            ->assertStatus(302)
+            ->assertHeader('Location',route('surl.list'))
+            ->assertSessionHasNoErrors();
     }
 }

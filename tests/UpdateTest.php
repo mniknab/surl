@@ -75,4 +75,24 @@ class UpdateTest extends TestCase
                 "short_url" => $this->getShortUrl($parameters['identifier'])
             ]);
     }
+
+
+    /** @test */
+    public function it_must_redirect_to_list_route_after_updated()
+    {
+        $createResponse = $this->createSurl([ 'url' => 'https://laravel.com' ],true);
+
+        $parameters = [
+            'url' => 'https://github.com',
+            'identifier' => 'github',
+        ];
+
+        $response = $this->updateSurl($createResponse['id'],$parameters,true);
+
+        $response
+            ->assertStatus(302)
+            ->assertHeader('Location',route('surl.list'))
+            ->assertSessionHasNoErrors();
+    }
+
 }
