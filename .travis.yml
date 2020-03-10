@@ -7,4 +7,9 @@ php:
 before_script:
   - composer install --no-progress --no-interaction --prefer-dist --no-suggest
 
-script: vendor/bin/phpunit --verbose
+script:
+  - mkdir -p build/logs
+  - vendor/bin/phpunit --verbose
+
+after_success:
+  - travis_retry php vendor/bin/php-coveralls -v

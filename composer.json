@@ -11,13 +11,14 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.2.0",
         "ext-json": "*"
     },
     "require-dev": {
         "orchestra/testbench": "^5.0",
         "phpunit/phpunit": "^8.0|^9.0",
-        "codedungeon/phpunit-result-printer": "dev-master"
+        "codedungeon/phpunit-result-printer": "dev-master",
+        "php-coveralls/php-coveralls": "^2.2"
     },
     "autoload": {
         "psr-4": {
