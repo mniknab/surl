@@ -1,7 +1,16 @@
-# SURL
- 
- [![Build Status](https://travis-ci.com/mniknab/surl.svg?branch=master)](https://travis-ci.com/mniknab/surl)
+<p align="center">
+ <img src="https://res.cloudinary.com/mniknab/image/upload/v1583838043/surl-logo_tokmqi.png" width="400">
+</p>
 
+<p align="center">
+<a href="https://travis-ci.com/mniknab/surl"><img src="https://travis-ci.com/mniknab/surl.svg?branch=master" alt="Build Status"></a>
+<a href='https://coveralls.io/github/mniknab/surl?branch=master'><img src='https://coveralls.io/repos/github/mniknab/surl/badge.svg?branch=master' alt='Coverage Status' /></a>
+<a href="https://packagist.org/packages/mniknab/surl"><img src="https://poser.pugx.org/mniknab/surl/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/mniknab/surl"><img src="https://poser.pugx.org/mniknab/surl/license.svg" alt="License"></a>
+</p>
+
+## About Surl
+ 
 **SURL** is a package allowing you to shorten urls.
 
 *By [Mohammad Niknab](https://github.com/mniknab)*
@@ -53,5 +62,3 @@ php artisan migrate
 > NOTE: You can also use Surl as an API.
 
 Go to  `http://{your-project}/surl-management`
-
-
