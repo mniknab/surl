@@ -40,7 +40,8 @@ abstract class TestCase extends OrchestraTestCase
 
         // setup configs
         \Config::set('surl.identifier_hash_length', 5);
-        \Config::set('cache_prefix', 'surl.identifier-');
+        \Config::set('surl.cache_prefix', 'surl.identifier-');
+        \Config::set('surl.items_per_page', 5);
     }
 
     /**
@@ -84,6 +85,16 @@ abstract class TestCase extends OrchestraTestCase
     /**
      * Create surl with POST method
      *
+     * @return \Illuminate\Testing\TestResponse
+     */
+    protected function newSurl()
+    {
+        return $this->getJson(route('surl.create'));
+    }
+
+    /**
+     * Create surl with POST Json method
+     *
      * @param array $parameters
      * @param bool $returnJson
      * @return \Illuminate\Testing\TestResponse|mixed
@@ -96,14 +107,28 @@ abstract class TestCase extends OrchestraTestCase
     }
 
     /**
+     * Create surl with POST method - Not json
+     *
+     * @param array $parameters
+     * @return \Illuminate\Testing\TestResponse|mixed
+     */
+    protected function createSurlWithNormalPostMethod(array $parameters = [])
+    {
+        return $this->post(route('surl.store'), $parameters);
+    }
+
+    /**
      * Update surl with PUT method
      *
      * @param $id
      * @param array $parameters
      * @return \Illuminate\Testing\TestResponse
      */
-    protected function updateSurl($id, array $parameters = [])
+    protected function updateSurl($id, array $parameters = [],$withNormalPutMethod = false)
     {
+        if($withNormalPutMethod){
+            return $this->put(route('surl.update',$id), $parameters);
+        }
         return $this->putJson(route('surl.update',$id), $parameters);
     }
 
@@ -124,9 +149,23 @@ abstract class TestCase extends OrchestraTestCase
      * @param $id
      * @return \Illuminate\Testing\TestResponse
      */
-    protected function destroySurl($id)
+    protected function destroySurl($id,$withNormalDeleteMethod = false)
     {
+        if($withNormalDeleteMethod){
+            return $this->delete(route('surl.destroy',$id));
+        }
+
         return $this->deleteJson(route('surl.destroy',$id));
+    }
+
+    /**
+     * Get all surl list
+     *
+     * @return \Illuminate\Testing\TestResponse
+     */
+    protected function listSurl()
+    {
+        return $this->getJson(route('surl.list'));
     }
 
     /**
